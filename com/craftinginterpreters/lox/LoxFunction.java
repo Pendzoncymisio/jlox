@@ -2,8 +2,6 @@ package com.craftinginterpreters.lox;
 
 import java.util.List;
 
-import org.xml.sax.ext.DeclHandler;
-
 class LoxFunction implements LoxCallable {
     private final Stmt.Function declaration;
     private final Environment closure;
