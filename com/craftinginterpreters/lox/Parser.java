@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 import static com.craftinginterpreters.lox.TokenType.*;
 
 public class Parser {
@@ -349,6 +347,8 @@ public class Parser {
         if (match(NUMBER, STRING)) {
             return new Expr.Literal(previous().literal);
         }
+
+        if (match(THIS)) return new Expr.This(previous());
 
         if (match(IDENTIFIER)) {
             return new Expr.Variable(previous());
